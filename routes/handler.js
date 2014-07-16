@@ -39,13 +39,30 @@ exports.addBook = function (req, res, next) {
 };
 
 exports.updateBook = function (req, res, next) {
-  // var author = req.params.author ? req.params.author.toLowerCase() : null;
-  // if (!author) res.send(400, {message: 'Author not found.'});
-  // clearAndUpdate(author, function () {
-  // });
-  res.log('Not Implemented yet');
+  res.send(200, 'Not Implemented yet');
 };
 
+exports.deleteAuthor = function (req, res, next) {
+  var author = req.params.author ? req.params.author.toLowerCase() : null;
+  var preLength = books.length;
+  if (!author) res.send(404, {message: 'Author not found.'});
+  clearAuthor(author, function (result) {
+    if (preLength === result.length) res.send(404, {message: 'Author not found.'});
+    books = result;
+    res.send(200, books);
+  });
+};
+
+function clearAuthor (author, callback) {
+  var result = books.filter(function (book, index) {
+    var firstName = book.author.split(' ')[0].toLowerCase();
+    var lastName = book.author.split(' ')[1].toLowerCase();
+    if (firstName !== author && lastName !== author) {
+      return true;
+    }
+  });
+  return callback(result);
+}
 
 var books = [
   {
