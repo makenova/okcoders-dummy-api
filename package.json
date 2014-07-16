@@ -1,0 +1,21 @@
+{
+  "name": "okcoders-dummy-api",
+  "version": "0.0.1",
+  "description": "An API server that spits out dummy data. For help with OKCoders class.",
+  "main": "app.js",
+  "dependencies": {
+    "restify": "^2.8.1",
+    "save": "^0.0.20"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/makenova/okcoders-dummy-api.git"
+  },
+  "author": "makenova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makenova/okcoders-dummy-api/issues"
+  },
+  "homepage": "https://github.com/makenova/okcoders-dummy-api"
+}
